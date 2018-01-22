@@ -1,0 +1,3 @@
+name: CubicalPickaxe
+version: ${project.version}
+main: me.waldxn.cubicalpickaxe.CubicalPickaxe
