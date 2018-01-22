@@ -2,16 +2,38 @@ package me.waldxn.cubicalpickaxe;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+
 public final class CubicalPickaxe extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        createConfig();
 
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+
+
+    }
+
+    private void createConfig() {
+        try {
+            if (!getDataFolder().exists()) {
+                getDataFolder().mkdirs();
+            }
+            File file = new File(getDataFolder(), "config.yml");
+            if (!file.exists()) {
+                getLogger().info("Config.yml not found, creating!");
+                saveDefaultConfig();
+            } else {
+                getLogger().info("Config.yml found, loading!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
     }
 }
