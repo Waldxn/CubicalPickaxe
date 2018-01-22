@@ -1,3 +1,6 @@
 name: CubicalPickaxe
 version: ${project.version}
 main: me.waldxn.cubicalpickaxe.CubicalPickaxe
+commands:
+  cubicalpickaxe:
+    usage: /cubicalpickaxe [player]

@@ -1,21 +1,37 @@
 package me.waldxn.cubicalpickaxe;
 
+import me.waldxn.cubicalpickaxe.commands.CubicalPickaxeCommand;
+import me.waldxn.cubicalpickaxe.manager.PickaxeManager;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
 public final class CubicalPickaxe extends JavaPlugin {
 
+    private PickaxeManager pickaxeManager = new PickaxeManager(this);
+
     @Override
     public void onEnable() {
         createConfig();
-
+        registerEvents();
+        registerCommands();
     }
 
     @Override
     public void onDisable() {
 
 
+    }
+
+    private void registerEvents() {
+        PluginManager pm = Bukkit.getPluginManager();
+        pm.registerEvents(pickaxeManager, this);
+    }
+
+    private void registerCommands() {
+        getCommand("cubicalpickaxe").setExecutor(new CubicalPickaxeCommand(pickaxeManager));
     }
 
     private void createConfig() {
@@ -34,6 +50,5 @@ public final class CubicalPickaxe extends JavaPlugin {
             e.printStackTrace();
 
         }
-
     }
 }
