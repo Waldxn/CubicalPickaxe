@@ -1,6 +1,7 @@
 name: CubicalPickaxe
 version: ${project.version}
 main: me.waldxn.cubicalpickaxe.CubicalPickaxe
+depend: [WorldGuard, ASkyBlock]
 commands:
   cubicalpickaxe:
     usage: /cubicalpickaxe [player]
