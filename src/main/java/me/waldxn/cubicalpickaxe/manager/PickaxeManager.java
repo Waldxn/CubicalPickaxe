@@ -1,5 +1,7 @@
 package me.waldxn.cubicalpickaxe.manager;
 
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import com.wasteofplastic.askyblock.ASkyBlockAPI;
 import me.waldxn.cubicalpickaxe.CubicalPickaxe;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -64,7 +66,8 @@ public class PickaxeManager implements Listener {
 
     @EventHandler
     public void onCubicalPickaxeUse(BlockBreakEvent event) {
-        if (CubicalPickaxe.asbAPI.playerIsOnIsland(event.getPlayer())) {
+
+        if (ASkyBlockAPI.getInstance().playerIsOnIsland(event.getPlayer())) {
             if (event.getPlayer().getInventory().getItemInHand().isSimilar(pickaxeVertical)) {
                 Block one = event.getBlock();
                 Block two = one.getRelative(1, 0, 0);
@@ -93,85 +96,85 @@ public class PickaxeManager implements Listener {
                 Block twentyfive = one.getRelative(1, -1, -1);
                 Block twentysix = one.getRelative(-1, -1, 1);
                 Block twentyseven = one.getRelative(-1, -1, -1);
-                if (one.getType() != Material.BEDROCK) {
+                if (one.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), one)) {
                     one.breakNaturally();
                 }
-                if (two.getType() != Material.BEDROCK) {
+                if (two.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), two)) {
                     two.breakNaturally();
                 }
-                if (three.getType() != Material.BEDROCK) {
+                if (three.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), three)) {
                     three.breakNaturally();
                 }
-                if (four.getType() != Material.BEDROCK) {
+                if (four.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), four)) {
                     four.breakNaturally();
                 }
-                if (five.getType() != Material.BEDROCK) {
+                if (five.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), five)) {
                     five.breakNaturally();
                 }
-                if (six.getType() != Material.BEDROCK) {
+                if (six.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), six)) {
                     six.breakNaturally();
                 }
-                if (seven.getType() != Material.BEDROCK) {
+                if (seven.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), seven)) {
                     seven.breakNaturally();
                 }
-                if (eight.getType() != Material.BEDROCK) {
+                if (eight.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), eight)) {
                     eight.breakNaturally();
                 }
-                if (nine.getType() != Material.BEDROCK) {
+                if (nine.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), nine)) {
                     nine.breakNaturally();
                 }
-                if (ten.getType() != Material.BEDROCK) {
+                if (ten.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), ten)) {
                     ten.breakNaturally();
                 }
-                if (eleven.getType() != Material.BEDROCK) {
+                if (eleven.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), eleven)) {
                     eleven.breakNaturally();
                 }
-                if (twelve.getType() != Material.BEDROCK) {
+                if (twelve.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), twelve)) {
                     twelve.breakNaturally();
                 }
-                if (thirteen.getType() != Material.BEDROCK) {
+                if (thirteen.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), thirteen)) {
                     thirteen.breakNaturally();
                 }
-                if (fourteen.getType() != Material.BEDROCK) {
+                if (fourteen.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), fourteen)) {
                     fourteen.breakNaturally();
                 }
-                if (fifteen.getType() != Material.BEDROCK) {
+                if (fifteen.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), fifteen)) {
                     fifteen.breakNaturally();
                 }
-                if (sixteen.getType() != Material.BEDROCK) {
+                if (sixteen.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), sixteen)) {
                     sixteen.breakNaturally();
                 }
-                if (seventeen.getType() != Material.BEDROCK) {
+                if (seventeen.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), seventeen)) {
                     seventeen.breakNaturally();
                 }
-                if (eighteen.getType() != Material.BEDROCK) {
+                if (eighteen.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), eighteen)) {
                     eighteen.breakNaturally();
                 }
-                if (nineteen.getType() != Material.BEDROCK) {
+                if (nineteen.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), nineteen)) {
                     nineteen.breakNaturally();
                 }
-                if (twenty.getType() != Material.BEDROCK) {
+                if (twenty.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), twenty)) {
                     twenty.breakNaturally();
                 }
-                if (twentyone.getType() != Material.BEDROCK) {
+                if (twentyone.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), twentyone)) {
                     twentyone.breakNaturally();
                 }
-                if (twentytwo.getType() != Material.BEDROCK) {
+                if (twentytwo.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), twentytwo)) {
                     twentytwo.breakNaturally();
                 }
-                if (twentythree.getType() != Material.BEDROCK) {
+                if (twentythree.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), twentythree)) {
                     twentythree.breakNaturally();
                 }
-                if (twentyfour.getType() != Material.BEDROCK) {
+                if (twentyfour.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), twentyfour)) {
                     twentyfour.breakNaturally();
                 }
-                if (twentyfive.getType() != Material.BEDROCK) {
+                if (twentyfive.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), twentyfive)) {
                     twentyfive.breakNaturally();
                 }
-                if (twentysix.getType() != Material.BEDROCK) {
+                if (twentysix.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), twentysix)) {
                     twentysix.breakNaturally();
                 }
-                if (twentyseven.getType() != Material.BEDROCK) {
+                if (twentyseven.getType() != Material.BEDROCK && WorldGuardPlugin.inst().canBuild(event.getPlayer(), twentyseven)) {
                     twentyseven.breakNaturally();
                 }
             }

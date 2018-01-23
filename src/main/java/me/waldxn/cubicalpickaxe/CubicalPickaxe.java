@@ -1,5 +1,6 @@
 package me.waldxn.cubicalpickaxe;
 
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.wasteofplastic.askyblock.ASkyBlockAPI;
 import me.waldxn.cubicalpickaxe.commands.CubicalPickaxeCommand;
 import me.waldxn.cubicalpickaxe.manager.PickaxeManager;
@@ -13,20 +14,15 @@ import java.io.File;
 public final class CubicalPickaxe extends JavaPlugin {
 
     private PickaxeManager pickaxeManager = new PickaxeManager(this);
-    public static ASkyBlockAPI asbAPI = null;
+
 
     @Override
     public void onEnable() {
         createConfig();
         registerEvents();
         registerCommands();
-        Plugin asb = getServer().getPluginManager().getPlugin("aSkyBlock");
-        if (asb !=null) {
-            asbAPI = ASkyBlockAPI.getInstance(); //I think
-            Bukkit.getLogger().info("ASkyBlock hooked!");
-        } else {
-            Bukkit.getLogger().info("ASkyBlock NOT found!");
-        }
+        getWorldGuard();
+        getAsbAPI();
     }
 
     private void registerEvents() {
@@ -56,5 +52,19 @@ public final class CubicalPickaxe extends JavaPlugin {
         }
     }
 
+    private WorldGuardPlugin getWorldGuard() {
+        Plugin plugin = getServer().getPluginManager().getPlugin("WorldGuard");
+        if (plugin == null || !(plugin instanceof WorldGuardPlugin)) {
+            return null;
+        }
+        return (WorldGuardPlugin) plugin;
+    }
 
+    private ASkyBlockAPI getAsbAPI() {
+        Plugin plugin = getServer().getPluginManager().getPlugin("ASkyBlock");
+        if (plugin == null || !(plugin instanceof WorldGuardPlugin)) {
+            return null;
+        }
+        return (ASkyBlockAPI) plugin;
+    }
 }
