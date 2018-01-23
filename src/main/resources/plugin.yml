@@ -4,3 +4,7 @@ main: me.waldxn.cubicalpickaxe.CubicalPickaxe
 commands:
   cubicalpickaxe:
     usage: /cubicalpickaxe [player]
+    description: Carve tunnels in seconds
+permissions:
+  cubicalpickaxe.admin:
+    description: Grants access to the /cubicalpickaxe command

@@ -1,7 +1,7 @@
 ### CubicalPickaxe was coded by Waldxn ###
 pickaxe:
   name: '&c&lCubical Pickaxe'
-  enchatments:
+  enchantments:
     efficiency: 10
     unbreaking: 10
     fortune: 10

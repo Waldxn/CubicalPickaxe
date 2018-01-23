@@ -2,6 +2,7 @@ package me.waldxn.cubicalpickaxe.commands;
 
 import me.waldxn.cubicalpickaxe.manager.PickaxeManager;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,16 +21,21 @@ public class CubicalPickaxeCommand implements CommandExecutor {
 
         Player owner;
 
+        if (!sender.hasPermission("cubicalpickaxe.admin")) {
+            sender.sendMessage(ChatColor.RED + "You don't have permission to do that!");
+            return true;
+        }
+
         if (args.length == 0 && !(sender instanceof Player)) {
-            sender.sendMessage("You can't give console a cubical pickaxe!");
+            sender.sendMessage(ChatColor.RED + "You can't give console a cubical pickaxe!");
             return true;
         } else if (args.length == 0) {
             owner = (Player) sender;
         } else if (args.length == 1) {
-            if (Bukkit.getPlayer(args[1]) != null) {
-                owner = Bukkit.getPlayer(args[1]);
+            if (Bukkit.getPlayer(args[0]) != null) {
+                owner = Bukkit.getPlayer(args[0]);
             } else {
-                sender.sendMessage(args[1] + " isn't online!");
+                sender.sendMessage(ChatColor.YELLOW + args[0] + " isn't online!");
                 return true;
             }
         } else {
@@ -37,22 +43,22 @@ public class CubicalPickaxeCommand implements CommandExecutor {
         }
 
         if (owner.getInventory().firstEmpty() == -1) {
-            sender.sendMessage("Inventory full. Please make space for the cubical pickaxe!");
+            sender.sendMessage(ChatColor.YELLOW + "Inventory full. Please make space for the cubical pickaxe!");
             return true;
         }
 
         if (!manager.checkConfigNulls()) {
-            sender.sendMessage("Check config. Invalid values!");
+            sender.sendMessage(ChatColor.RED + "Check config. Invalid values!");
             return true;
         }
 
         manager.createCubicalPickaxe(owner);
 
         if (sender != owner) {
-            sender.sendMessage("Cubical Pickaxe added to " + owner.getName() + "'s inventory!");
-            owner.sendMessage("Cubical Pickaxe added to your inventory!");
+            sender.sendMessage(ChatColor.GREEN + "Cubical Pickaxe added to " + owner.getName() + "'s inventory!");
+            owner.sendMessage(ChatColor.GREEN + "Cubical Pickaxe added to your inventory!");
         } else {
-            owner.sendMessage("Cubical Pickaxe added to your inventory!");
+            owner.sendMessage(ChatColor.GREEN + "Cubical Pickaxe added to your inventory!");
         }
 
 
