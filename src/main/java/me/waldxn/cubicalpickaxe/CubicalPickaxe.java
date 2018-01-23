@@ -1,8 +1,10 @@
 package me.waldxn.cubicalpickaxe;
 
+import com.wasteofplastic.askyblock.ASkyBlockAPI;
 import me.waldxn.cubicalpickaxe.commands.CubicalPickaxeCommand;
 import me.waldxn.cubicalpickaxe.manager.PickaxeManager;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,14 +13,22 @@ import java.io.File;
 public final class CubicalPickaxe extends JavaPlugin {
 
     private PickaxeManager pickaxeManager = new PickaxeManager(this);
+    public static ASkyBlockAPI asbAPI = null;
 
     @Override
     public void onEnable() {
         createConfig();
         registerEvents();
         registerCommands();
+        Plugin asb = getServer().getPluginManager().getPlugin("aSkyBlock");
+        if (asb !=null) {
+            asbAPI = ASkyBlockAPI.getInstance(); //I think
+            Bukkit.getLogger().info("ASkyBlock hooked!");
+        } else {
+            Bukkit.getLogger().info("ASkyBlock NOT found!");
+        }
     }
-    
+
     private void registerEvents() {
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(pickaxeManager, this);
@@ -45,4 +55,6 @@ public final class CubicalPickaxe extends JavaPlugin {
 
         }
     }
+
+
 }
