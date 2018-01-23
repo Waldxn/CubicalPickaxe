@@ -18,13 +18,7 @@ public final class CubicalPickaxe extends JavaPlugin {
         registerEvents();
         registerCommands();
     }
-
-    @Override
-    public void onDisable() {
-
-
-    }
-
+    
     private void registerEvents() {
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(pickaxeManager, this);
